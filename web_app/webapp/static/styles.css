@@ -1,0 +1,149 @@
+
+
+body {
+  font-family: "Lato", sans-serif;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* For the hidden/opened left side menu */
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  color: gray;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  background: none;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+  background: none;
+  color: gray;
+}
+
+#main {
+  transition: margin-left .2s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+/* For the load webcam button */
+
+.button {
+  color: black
+  padding: 16px 16px 16px 16px;
+  text-align: center;
+  font-size: 20px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 16px 16px;
+}
+
+input[type="submit"] {
+  font-size:20px;
+}
+
+/* For the top menu bar */
+
+.topnav {
+  overflow: hidden;
+  background-color: none;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  float: right;
+}
+
+.topnav a:hover {
+  background-color: none;
+  color: gray;
+}
+
+.topnav button.openbtn {
+  background-color: none;
+  color: black;
+  font-size: 24px;
+  float: left;
+}
+
+.topnav a.active {
+  background-color: none;
+  color: black;
+  font-size: 32px;
+  float: left;
+}
+
+/* Video player etc */
+
+.video {
+  width: 500px;
+  height: auto;
+  position: absolute;
+  z-index: -1;
+  background: rgba(0, 0, 0, 1.00);
+  padding: 8px 8px 8px 8px;
+}
+
+.canvas {
+  width: 500px;
+  height: auto;
+  position: absolute;
+  z-index: 1;
+  padding: 8px 8px 8px 8px;
+}
+
+.table {
+  width: 516px;
+  color: white;
+  text-align: left;
+  background: rgba(0, 0, 0, 1.00);
+  background-color: rgba(0, 0, 0, 1.00);
+  padding: 0px 0px 0px 0px;
+}
+
+
