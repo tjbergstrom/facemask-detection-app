@@ -1,0 +1,156 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mask Recognition</title>
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+      }
+      /* For the hidden/opened left side menu */
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+      .sidebar a {
+        padding: 8px 8px 8px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+        display: block;
+        transition: 0.2s;
+      }
+      .sidebar a:hover {
+        color: gray;
+      }
+      .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+      .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        background: none;
+        color: black;
+        padding: 10px 15px;
+        border: none;
+      }
+      .openbtn:hover {
+        background-color: #444;
+        background: none;
+        color: gray;
+      }
+      #main {
+        transition: margin-left .2s;
+        padding: 16px;
+      }
+      @media screen and (max-height: 450px) {
+        .sidebar {padding-top: 15px;}
+        .sidebar a {font-size: 18px;}
+      }
+      /* For the load webcam button */
+      .button {
+        color: black
+        padding: 16px 16px 16px 16px;
+        text-align: center;
+        font-size: 20px;
+        text-decoration: none;
+        display: inline-block;
+        margin: 16px 16px;
+      }
+      input[type="submit"] {
+        font-size:20px;
+      }
+      /* For the top menu bar */
+      .topnav {
+        overflow: hidden;
+        background-color: none;
+      }
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        float: right;
+      }
+      .topnav a:hover {
+        background-color: none;
+        color: gray;
+      }
+      .topnav button.openbtn {
+        background-color: none;
+        color: black;
+        font-size: 24px;
+        float: left;
+      }
+      .topnav a.active {
+        background-color: none;
+        color: black;
+        font-size: 32px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hidden/opened left side bar menu -->
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <!-- Upload webcam button -->
+      <form action="{{url_for('webcam')}}" mothod="POST">
+        <div class="button">
+          <input type="submit" value="Load Webcam" onclick="redirectStreamPage('device', null)">
+        </div>
+      </form>
+      <!-- Menu links to other pages -->
+      <a class="nav-item nav-link" href="{{url_for('home')}}">Machine Learning</a>
+      <a class="nav-item nav-link" href="{{url_for('home')}}">Statistics</a>
+    </div>
+    <div id="main">
+      <!-- Top menu bar -->
+      <div class="topnav">
+        <button class="openbtn" onclick="openNav()">☰</button>
+        <a class="active" href="/">Mask Recognition</a>
+      </div>
+      <p></p>
+      <!-- Video players go here -->
+      {% block content %}{% endblock %}
+    </div>
+    <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "256px";
+        document.getElementById("main").style.marginLeft = "256px";
+      }
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+      function redirectStreamPage(streamType, streamSource) {
+        localStorage.streamType = streamType;
+        localStorage.streamSource = streamSource;
+        location.href = '/stream';
+      }
+    </script>
+    <main role="main" class="container">
+      <div>
+      </div>
+    </main>
+  </body>
+</html>
+
+
