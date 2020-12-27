@@ -1,4 +1,4 @@
-This is the web app for the covid mask detection machine learning and computer vision project. For now it's just a lightweight video based web app to demonstrate the functionality.
+This is a web app for the covid mask detection machine learning and computer vision project. The models are deployed with TensorFlow.js here. For now it's just a lightweight video based web app to demonstrate the functionality.
 
 <br>
 
